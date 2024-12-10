@@ -10,11 +10,11 @@ import TeamJobs from './team/jobs';
 import TeamProjects from './team/projects';
 import ProjectMembers from './team/project-members';
 
-export default function TimesheetTracker() {
+export default function timesheet_tracker() {
   const [activeSection, setActiveSection] = useState('my-data');
   const [activeTab, setActiveTab] = useState('time-logs');
 
-  const renderMyDataTabs = () => (
+  const render_my_datatabs = () => (
     <div className="flex gap-8 px-6 border-b">
       <button
         className={`py-4 ${activeTab === 'time-logs' ? 'border-b-2 border-blue-500 text-blue-500' : ''}`}
@@ -74,24 +74,15 @@ export default function TimesheetTracker() {
 
   const renderContent = () => {
     switch (activeTab) {
-      case 'time-logs':
-        return <TimeLogs />;
-      case 'timesheets':
-        return <Timesheets />;
-      case 'jobs':
-        return <Jobs />;
-      case 'projects':
-        return <Projects />;
-      case 'job-schedule':
-        return <JobSchedule />;
-      case 'project-members':
-        return <ProjectMembers />;
-      case 'team-jobs':
-        return <TeamJobs />;
-      case 'team-projects':
-        return <TeamProjects />;
-      default:
-        return <TimeLogs />;
+      case 'time-logs': return <TimeLogs />;
+      case 'timesheets': return <Timesheets />;
+      case 'jobs': return <Jobs />;
+      case 'projects': return <Projects />;
+      case 'job-schedule': return <JobSchedule />;
+      case 'project-members': return <ProjectMembers />;
+      case 'team-jobs': return <TeamJobs />;
+      case 'team-projects': return <TeamProjects />;
+      default: return <TimeLogs />;
     }
   };
 
@@ -135,7 +126,7 @@ export default function TimesheetTracker() {
       </div>
 
       {/* Navigation Tabs */}
-      {activeSection === 'my-data' ? renderMyDataTabs() : renderTeamTabs()}
+      {activeSection === 'my-data' ? render_my_datatabs() : renderTeamTabs()}
 
       {/* Content Area */}
       {renderContent()}
